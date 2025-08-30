@@ -1,9 +1,0 @@
-nodes:
-  - node_id: search-online#1
-    title: "Search Online #1"
-    inputs_from:
-      - handle: url
-        value: null
-      - handle: text
-        value: null
-    task: self::search-online
