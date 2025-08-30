@@ -5,9 +5,3 @@ nodes:
       - handle: url
         value: oomol.com
     task: self::crawler
-  - node_id: search#1
-    title: "Search #1"
-    inputs_from:
-      - handle: text
-        value: oomol
-    task: self::search

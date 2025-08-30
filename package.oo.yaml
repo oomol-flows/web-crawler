@@ -1,9 +1,12 @@
-version: 0.0.3
+version: 0.0.1
 scripts:
   bootstrap: |
     npm install
     poetry install --no-root
-name: search-online
-description: Search or crawl data for you
-displayName: search-online
+name: web-crawler
+description: Enter a web page address, you can use this web crawler to crawl and
+  output the data
+displayName: Web Crawler
 icon: ./icon.png
+releaseNotes: init
+repository: https://github.com/oomol-flows/web-crawler.git
