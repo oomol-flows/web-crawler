@@ -1,0 +1,32 @@
+title: "Search Online"
+description: "使用 OOMOL API 进行网页内容搜索和文本处理"
+icon: ":carbon:search:"
+
+inputs_def:
+  - handle: url
+    description: "要搜索的网页 URL"
+    json_schema:
+      type: string
+      nullable: true
+    value:
+    nullable: true
+
+  - handle: text
+    description: "要处理的文本内容"
+    json_schema:
+      type: string
+      nullable: true
+    value:
+    nullable: true
+
+outputs_def:
+  - handle: content
+    description: "搜索或处理后的内容结果"
+    json_schema:
+      type: string
+
+executor:
+  name: nodejs
+  options:
+    entry: __init__.ts
+    spawn: false
