@@ -14,33 +14,33 @@ export default async function(
   context: Context<Inputs, Outputs>
 ): Promise<Outputs> {
 
-  // 获取 API key - 在OOMOL环境中通过context获取
+  // Get API key from OOMOL environment through context
   const apiKey = context.OOMOL_LLM_ENV.apiKey;
 
   const apiUrl = "https://console.oomol.com/api/tasks/jina/reader";
   
-  // 验证是否为有效链接
+  // Validate if the URL is valid
   function validateUrl(url: string): string {
     if (!url) {
-      throw new Error("URL不能为空");
+      throw new Error("URL cannot be empty");
     }
     
-    // 补全协议前缀（如果没有）
+    // Complete the protocol prefix (if not present)
     let fullUrl = url;
     if (!url.match(/^https?:\/\//i)) {
       fullUrl = `https://${url}`;
     }
     
-    // 验证是否为有效URL格式
+    // Validate if the URL format is valid
     try {
       new URL(fullUrl);
       return fullUrl;
     } catch (error) {
-      throw new Error(`无效的链接格式: ${url}`);
+      throw new Error(`Invalid URL format: ${url}`);
     }
   }
 
-  // 构建请求体
+  // Build request body
   const requestBody: any = {};
   requestBody.url = validateUrl(params.url);
 
@@ -55,13 +55,13 @@ export default async function(
     });
 
     if (!response.ok) {
-      throw new Error(`API 调用失败: ${response.status} ${response.statusText}`);
+      throw new Error(`API call failed: ${response.status} ${response.statusText}`);
     }
 
     const content = await response.text();
     
     return { content };
   } catch (error) {
-    throw new Error(`请求失败: ${error.message}`);
+    throw new Error(`Request failed: ${error.message}`);
   }
 }
