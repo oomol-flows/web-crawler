@@ -58,10 +58,10 @@ export default async function(
       throw new Error(`API call failed: ${response.status} ${response.statusText}`);
     }
 
-    const content = await response.text();
-    
-    return { content };
+    const jsonResponse = await response.json();
+
+    return { content: jsonResponse.data };
   } catch (error) {
-    throw new Error(`Request failed: ${error.message}`);
+    throw new Error(`Request failed: ${error instanceof Error ? error.message : String(error)}`);
   }
 }

@@ -1,4 +1,4 @@
-version: 0.0.3
+version: 0.0.4
 scripts:
   bootstrap: |
     npm install
@@ -7,5 +7,5 @@ name: web-crawler
 description: "%enter-a-web-page-address-you-can-use-this-web-crawler-to-crawl-a%"
 displayName: "%web-crawler%"
 icon: ./icon.png
-releaseNotes: init
 repository: https://github.com/oomol-flows/web-crawler.git
+releaseNotes: fix bug
